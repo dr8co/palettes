@@ -142,5 +142,12 @@ func createStyle(hex string) lipgloss.Style {
 
 func InitAllSchemes() *SchemeRegistry {
 	registry := NewSchemeRegistry()
+	variants := []string{"latte", "frappe", "macchiato", "mocha"}
+	for _, variant := range variants {
+		if palette := createCatppuccinPalette(variant); palette != nil {
+			registry.Register(palette)
+		}
+	}
+
 	return registry
 }
