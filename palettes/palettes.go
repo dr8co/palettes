@@ -122,13 +122,13 @@ func (r *SchemeRegistry) ShowAll() {
 	}
 }
 
-func (r *SchemeRegistry) Show(name string) {
+func (r *SchemeRegistry) Show(name string) error {
 	scheme, exists := r.Get(name)
 	if !exists {
-		fmt.Println("Scheme not found:", name)
-		return
+		return fmt.Errorf("palette %s not found", name)
 	}
 	scheme.Show()
+	return nil
 }
 
 type ColorDefinition struct {
