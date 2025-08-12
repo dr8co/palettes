@@ -43,7 +43,7 @@ func NewPalette(name string, families ...string) *Palette {
 	return &Palette{
 		name:     name,
 		families: families,
-		colors:   make([]Color, 0, 15),
+		colors:   make([]Color, 0, 32),
 	}
 }
 

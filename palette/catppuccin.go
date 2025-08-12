@@ -17,6 +17,18 @@ var CatppuccinColors = map[string][]ColorDefinition{
 		{"Sapphire", "#209fb5"},
 		{"Blue", "#1e66f5"},
 		{"Lavender", "#7287fd"},
+		{"Text", "#4c4f69"},
+		{"Subtext 1", "#5c5f77"},
+		{"Subtext 0", "#6c6f85"},
+		{"Overlay 2", "#7c7f93"},
+		{"Overlay 1", "#8c8fa1"},
+		{"Overlay 0", "#9ca0b0"},
+		{"surface 2", "#acb0be"},
+		{"Surface 1", "#bcc0cc"},
+		{"Surface 0", "#ccd0da"},
+		{"Base", "#eff1f5"},
+		{"Mantle", "#e6e9ef"},
+		{"Crust", "#dce0e8"},
 	},
 	"frappe": {
 		{"Rosewater", "#f2d5cf"},
@@ -33,6 +45,18 @@ var CatppuccinColors = map[string][]ColorDefinition{
 		{"Sapphire", "#85c1dc"},
 		{"Blue", "#8caaee"},
 		{"Lavender", "#babbf1"},
+		{"Text", "#c6d0f5"},
+		{"Subtext 1", "#b5bfe2"},
+		{"Subtext 0", "#a5adce"},
+		{"Overlay 2", "#949cbb"},
+		{"Overlay 1", "#838ba7"},
+		{"Overlay 0", "#737994"},
+		{"surface 2", "#626880"},
+		{"Surface 1", "#51576d"},
+		{"Surface 0", "#414559"},
+		{"Base", "#303446"},
+		{"Mantle", "#292c3c"},
+		{"Crust", "#232634"},
 	},
 	"macchiato": {
 		{"Rosewater", "#f4dbd6"},
@@ -49,6 +73,18 @@ var CatppuccinColors = map[string][]ColorDefinition{
 		{"Sapphire", "#7dc4e4"},
 		{"Blue", "#8aadf4"},
 		{"Lavender", "#b7bdf8"},
+		{"Text", "#cad3f5"},
+		{"Subtext 1", "#b8c0e0"},
+		{"Subtext 0", "#a5adcb"},
+		{"Overlay 2", "#939ab7"},
+		{"Overlay 1", "#8087a2"},
+		{"Overlay 0", "#6e738d"},
+		{"surface 2", "#5b6078"},
+		{"Surface 1", "#494d64"},
+		{"Surface 0", "#363a4f"},
+		{"Base", "#24273a"},
+		{"Mantle", "#1e2030"},
+		{"Crust", "#181926"},
 	},
 	"mocha": {
 		{"Rosewater", "#f5e0dc"},
@@ -65,6 +101,18 @@ var CatppuccinColors = map[string][]ColorDefinition{
 		{"Sapphire", "#74c7ec"},
 		{"Blue", "#89b4fa"},
 		{"Lavender", "#b4befe"},
+		{"Text", "#cdd6f4"},
+		{"Subtext 1", "#bac2de"},
+		{"Subtext 0", "#a6adc8"},
+		{"Overlay 2", "#9399b2"},
+		{"Overlay 1", "#7f849c"},
+		{"Overlay 0", "#6c7086"},
+		{"surface 2", "#585b70"},
+		{"Surface 1", "#45475a"},
+		{"Surface 0", "#313244"},
+		{"Base", "#1e1e2e"},
+		{"Mantle", "#181825"},
+		{"Crust", "#11111b"},
 	},
 }
 
@@ -94,7 +142,7 @@ func CreateCatppuccinPalette(variant string) *Palette {
 	}
 
 	// Create families: Catppuccin, theme (dark/light), and variant name
-	families := []string{"Catppuccin", variantInfo.Theme, variant}
+	families := []string{"catppuccin", "pastel", variantInfo.Theme, variant}
 	palette := NewPalette(name, families...)
 
 	for _, color := range colors {
