@@ -70,6 +70,7 @@ func main() {
 	reg.ShowAll()
 }
 
+// printPaletteList displays a list of all available color palettes.
 func printPaletteList(reg *registry.SchemeRegistry) {
 	fmt.Println("Available color palettes:")
 	fmt.Println(strings.Repeat("─", 40))
@@ -90,6 +91,7 @@ func printPaletteList(reg *registry.SchemeRegistry) {
 	}
 }
 
+// pluralize returns the plural suffix for a given count.
 func pluralize(count int) string {
 	if count == 1 {
 		return ""
@@ -97,6 +99,7 @@ func pluralize(count int) string {
 	return "s"
 }
 
+// handleShowCommand processes the '-show' flag to display a specific palette or family.
 func handleShowCommand(reg *registry.SchemeRegistry, query string) error {
 	query = strings.TrimSpace(strings.ToLower(query))
 

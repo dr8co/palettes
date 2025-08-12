@@ -6,9 +6,15 @@ import (
 	"strings"
 )
 
+// ColorScheme is re-exported from the palette package to maintain compatibility.
 type ColorScheme interface {
+	// Name returns the name of the color scheme.
 	Name() string
+
+	// Show displays the color scheme.
 	Show()
+
+	// Families returns the color families.
 	Families() []string
 }
 
@@ -17,21 +23,25 @@ type SchemeRegistry struct {
 	schemes map[string]ColorScheme
 }
 
+// NewSchemeRegistry creates a new scheme registry.
 func NewSchemeRegistry() *SchemeRegistry {
 	return &SchemeRegistry{
 		schemes: make(map[string]ColorScheme),
 	}
 }
 
+// Register adds a color scheme to the registry.
 func (r *SchemeRegistry) Register(scheme ColorScheme) {
 	r.schemes[scheme.Name()] = scheme
 }
 
+// Get retrieves a color scheme by name (case-sensitive).
 func (r *SchemeRegistry) Get(name string) (ColorScheme, bool) {
 	scheme, exists := r.schemes[name]
 	return scheme, exists
 }
 
+// List returns all registered scheme names, sorted alphabetically.
 func (r *SchemeRegistry) List() []string {
 	names := make([]string, 0, len(r.schemes))
 	for name := range r.schemes {
@@ -42,6 +52,7 @@ func (r *SchemeRegistry) List() []string {
 	return names
 }
 
+// Show displays a specific color scheme by name.
 func (r *SchemeRegistry) Show(name string) error {
 	scheme, exists := r.Get(name)
 	if !exists {
@@ -51,13 +62,14 @@ func (r *SchemeRegistry) Show(name string) error {
 	return nil
 }
 
+// ShowAll displays all registered color schemes.
 func (r *SchemeRegistry) ShowAll() {
 	for _, scheme := range r.schemes {
 		scheme.Show()
 	}
 }
 
-// FindByFamily returns all schemes belonging to a specific family
+// FindByFamily returns all schemes belonging to a specific family.
 func (r *SchemeRegistry) FindByFamily(family string) []ColorScheme {
 	family = strings.ToLower(family)
 	var matches []ColorScheme
@@ -79,7 +91,7 @@ func (r *SchemeRegistry) FindByFamily(family string) []ColorScheme {
 	return matches
 }
 
-// FindByPartialName returns all schemes whose names contain the given substring
+// FindByPartialName returns all schemes whose names contain the given substring.
 func (r *SchemeRegistry) FindByPartialName(partial string) []ColorScheme {
 	partial = strings.ToLower(partial)
 	var matches []ColorScheme
@@ -98,7 +110,7 @@ func (r *SchemeRegistry) FindByPartialName(partial string) []ColorScheme {
 	return matches
 }
 
-// GetFamilies returns all unique family names across all schemes
+// GetFamilies returns all unique family names across all schemes.
 func (r *SchemeRegistry) GetFamilies() []string {
 	familySet := make(map[string]bool)
 
@@ -119,7 +131,7 @@ func (r *SchemeRegistry) GetFamilies() []string {
 	return families
 }
 
-// GetSchemesByFamilies returns schemes that belong to ALL specified families (AND operation)
+// GetSchemesByFamilies returns schemes that belong to ALL specified families (AND operation).
 func (r *SchemeRegistry) GetSchemesByFamilies(families []string) []ColorScheme {
 	if len(families) == 0 {
 		return nil

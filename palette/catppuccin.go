@@ -1,6 +1,6 @@
 package palette
 
-// CatppuccinColors contains the color definitions for all the Catppuccin variants
+// CatppuccinColors contains the color definitions for all the Catppuccin variants.
 var CatppuccinColors = map[string][]ColorDefinition{
 	"latte": {
 		{"Rosewater", "#dc8a78"},
@@ -68,7 +68,7 @@ var CatppuccinColors = map[string][]ColorDefinition{
 	},
 }
 
-// CatppuccinVariantInfo contains metadata about each Catppuccin variant
+// CatppuccinVariantInfo contains metadata about each Catppuccin variant.
 var CatppuccinVariantInfo = map[string]struct {
 	Theme       string
 	Description string
@@ -79,7 +79,8 @@ var CatppuccinVariantInfo = map[string]struct {
 	"mocha":     {"dark", "Dark theme with rich colors"},
 }
 
-func createCatppuccinPalette(variant string) *Palette {
+// CreateCatppuccinPalette creates a Catppuccin palette variant with appropriate families.
+func CreateCatppuccinPalette(variant string) *Palette {
 	colors, exists := CatppuccinColors[variant]
 	if !exists {
 		return nil
@@ -92,6 +93,7 @@ func createCatppuccinPalette(variant string) *Palette {
 		return nil
 	}
 
+	// Create families: Catppuccin, theme (dark/light), and variant name
 	families := []string{"Catppuccin", variantInfo.Theme, variant}
 	palette := NewPalette(name, families...)
 
