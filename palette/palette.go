@@ -55,7 +55,7 @@ func (p *Palette) AddColor(name, hex string) *Palette {
 }
 
 // AddColors adds multiple colors to the palette.
-func (p *Palette) AddColors(colors []Color) *Palette {
+func (p *Palette) AddColors(colors ...Color) *Palette {
 	p.colors = append(p.colors, colors...)
 	return p
 }
@@ -105,7 +105,7 @@ func (p *Palette) render(bold bool) {
 		if bold {
 			style = style.Bold(true)
 		}
-		bar := style.Reverse(true).Render(fmt.Sprintf(" %-15s %-18s                 ", color.Name, color.Hex))
+		bar := style.Reverse(true).Render(fmt.Sprintf(" %-15s %-18s                 ", color.Def.Name, color.Def.Hex))
 		fmt.Println(style.Render(fmt.Sprintf("%s %-7s ", placeHolderText, suffix)), bar)
 	}
 }

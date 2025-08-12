@@ -2,13 +2,10 @@ package palette
 
 import "github.com/charmbracelet/lipgloss"
 
-// Color represents a single color with its name and styling information.
+// Color represents a single color with its definition and styling information.
 type Color struct {
-	// Name is the name of the color.
-	Name string
-
-	// Hex is the hex code of the color.
-	Hex string
+	// Def is the color definition (name and hex).
+	Def ColorDefinition
 
 	// Style is the lipgloss style for the color.
 	Style lipgloss.Style
@@ -26,8 +23,7 @@ type ColorDefinition struct {
 // NewColor creates a new Color instance.
 func NewColor(name, hex string) *Color {
 	return &Color{
-		Name:  name,
-		Hex:   hex,
+		Def:   ColorDefinition{Name: name, Hex: hex},
 		Style: renderer.NewStyle().Foreground(lipgloss.Color(hex)),
 	}
 }
