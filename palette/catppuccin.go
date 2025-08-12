@@ -1,8 +1,9 @@
 package palette
 
 // CatppuccinColors contains the color definitions for all the Catppuccin variants.
+// Check https://catppuccin.com/palette for more information.
 var CatppuccinColors = map[string][]ColorDefinition{
-	"latte": {
+	"Latte": {
 		{"Rosewater", "#dc8a78"},
 		{"Flamingo", "#dd7878"},
 		{"Pink", "#ea76cb"},
@@ -30,7 +31,7 @@ var CatppuccinColors = map[string][]ColorDefinition{
 		{"Mantle", "#e6e9ef"},
 		{"Crust", "#dce0e8"},
 	},
-	"frappe": {
+	"Frappe": {
 		{"Rosewater", "#f2d5cf"},
 		{"Flamingo", "#eebebe"},
 		{"Pink", "#f4b8e4"},
@@ -58,7 +59,7 @@ var CatppuccinColors = map[string][]ColorDefinition{
 		{"Mantle", "#292c3c"},
 		{"Crust", "#232634"},
 	},
-	"macchiato": {
+	"Macchiato": {
 		{"Rosewater", "#f4dbd6"},
 		{"Flamingo", "#f0c6c6"},
 		{"Pink", "#f5bde6"},
@@ -86,7 +87,7 @@ var CatppuccinColors = map[string][]ColorDefinition{
 		{"Mantle", "#1e2030"},
 		{"Crust", "#181926"},
 	},
-	"mocha": {
+	"Mocha": {
 		{"Rosewater", "#f5e0dc"},
 		{"Flamingo", "#f2cdcd"},
 		{"Pink", "#f5c2e7"},
@@ -121,10 +122,10 @@ var CatppuccinVariantInfo = map[string]struct {
 	Theme       string
 	Description string
 }{
-	"latte":     {"light", "Light theme with warm tones"},
-	"frappe":    {"dark", "Dark theme with muted colors"},
-	"macchiato": {"dark", "Dark theme with vibrant colors"},
-	"mocha":     {"dark", "Dark theme with rich colors"},
+	"Latte":     {"light", "Light theme with warm tones"},
+	"Frappe":    {"dark", "Dark theme with muted colors"},
+	"Macchiato": {"dark", "Dark theme with vibrant colors"},
+	"Mocha":     {"dark", "Dark theme with rich colors"},
 }
 
 // CreateCatppuccinPalette creates a Catppuccin palette variant with appropriate families.

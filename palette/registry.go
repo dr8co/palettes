@@ -6,7 +6,7 @@ import "github.com/dr8co/palettes/registry"
 func RegisterAllSchemes(reg *registry.SchemeRegistry) {
 	// Register Catppuccin palettes
 	for variant := range CatppuccinColors {
-		if palette := CreateRosePinePalette(variant); palette != nil {
+		if palette := CreateCatppuccinPalette(variant); palette != nil {
 			reg.Register(palette)
 		}
 	}
