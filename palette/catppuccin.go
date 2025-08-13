@@ -135,8 +135,7 @@ func CreateCatppuccinPalette(variant string) *Palette {
 	name := "Catppuccin " + variant
 
 	// Create families: Catppuccin, theme (dark/light), and variant name
-	families := []string{"catppuccin", "pastel", theme, variant}
-	palette := NewPalette(name, families...)
+	palette := NewPalette(name, "catppuccin", "pastel", theme, variant)
 
 	for _, color := range colors {
 		palette.AddColor(color.Name, color.Hex)

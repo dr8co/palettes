@@ -65,8 +65,7 @@ func CreateRosePinePalette(variant string) *Palette {
 
 	name := "Rose Pine " + variant
 
-	families := []string{"Rose Pine", "dark", variant}
-	palette := NewPalette(name, families...)
+	palette := NewPalette(name, "Rose Pine", "dark", variant)
 
 	for _, color := range colors {
 		palette.AddColor(color.Name, color.Hex)
