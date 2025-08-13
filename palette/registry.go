@@ -29,4 +29,11 @@ func RegisterAllSchemes(reg *registry.SchemeRegistry) {
 			reg.Register(palette)
 		}
 	}
+
+	// Nord
+	for variant := range NordColors {
+		if palette := CreateNordPalette(variant); palette != nil {
+			reg.Register(palette)
+		}
+	}
 }
