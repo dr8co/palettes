@@ -1,9 +1,11 @@
 package palette
 
+import "strings"
+
 // CatppuccinColors contains the color definitions for all the Catppuccin variants.
 // Check https://catppuccin.com/palette for more information.
 var CatppuccinColors = map[string][]ColorDefinition{
-	"Latte": {
+	"latte": {
 		{"Rosewater", "#dc8a78"},
 		{"Flamingo", "#dd7878"},
 		{"Pink", "#ea76cb"},
@@ -31,7 +33,7 @@ var CatppuccinColors = map[string][]ColorDefinition{
 		{"Mantle", "#e6e9ef"},
 		{"Crust", "#dce0e8"},
 	},
-	"Frappe": {
+	"frappe": {
 		{"Rosewater", "#f2d5cf"},
 		{"Flamingo", "#eebebe"},
 		{"Pink", "#f4b8e4"},
@@ -59,7 +61,7 @@ var CatppuccinColors = map[string][]ColorDefinition{
 		{"Mantle", "#292c3c"},
 		{"Crust", "#232634"},
 	},
-	"Macchiato": {
+	"macchiato": {
 		{"Rosewater", "#f4dbd6"},
 		{"Flamingo", "#f0c6c6"},
 		{"Pink", "#f5bde6"},
@@ -87,7 +89,7 @@ var CatppuccinColors = map[string][]ColorDefinition{
 		{"Mantle", "#1e2030"},
 		{"Crust", "#181926"},
 	},
-	"Mocha": {
+	"mocha": {
 		{"Rosewater", "#f5e0dc"},
 		{"Flamingo", "#f2cdcd"},
 		{"Pink", "#f5c2e7"},
@@ -117,33 +119,23 @@ var CatppuccinColors = map[string][]ColorDefinition{
 	},
 }
 
-// CatppuccinVariantInfo contains metadata about each Catppuccin variant.
-var CatppuccinVariantInfo = map[string]struct {
-	Theme       string
-	Description string
-}{
-	"Latte":     {"light", "Light theme with warm tones"},
-	"Frappe":    {"dark", "Dark theme with muted colors"},
-	"Macchiato": {"dark", "Dark theme with vibrant colors"},
-	"Mocha":     {"dark", "Dark theme with rich colors"},
-}
-
 // CreateCatppuccinPalette creates a Catppuccin palette variant with appropriate families.
 func CreateCatppuccinPalette(variant string) *Palette {
+	variant = strings.ToLower(strings.TrimSpace(variant))
 	colors, exists := CatppuccinColors[variant]
 	if !exists {
 		return nil
 	}
 
-	name := "Catppuccin " + variant
-
-	variantInfo, exists := CatppuccinVariantInfo[variant]
-	if !exists {
-		return nil
+	theme := "dark"
+	if variant == "latte" {
+		theme = "light"
 	}
 
+	name := "Catppuccin " + variant
+
 	// Create families: Catppuccin, theme (dark/light), and variant name
-	families := []string{"catppuccin", "pastel", variantInfo.Theme, variant}
+	families := []string{"catppuccin", "pastel", theme, variant}
 	palette := NewPalette(name, families...)
 
 	for _, color := range colors {

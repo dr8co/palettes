@@ -6,15 +6,16 @@ import (
 	"strings"
 
 	"github.com/charmbracelet/lipgloss"
+	"golang.org/x/text/cases"
+	"golang.org/x/text/language"
 )
 
 var (
 	renderer = lipgloss.NewRenderer(os.Stdout)
+	caser    = cases.Title(language.English)
 )
 
-const (
-	placeHolderText = "Lorem ipsum dolor"
-)
+const placeHolderText = "Lorem ipsum dolor"
 
 // ColorScheme defines the interface for color schemes
 type ColorScheme interface {
@@ -98,14 +99,14 @@ func (p *Palette) render(bold bool) {
 	if bold {
 		suffix = "Bold"
 	}
-	fmt.Println("Palette:", p.name, suffix)
+	fmt.Println("Palette:", caser.String(p.name), suffix)
 
 	for _, color := range p.colors {
 		style := color.Style
 		if bold {
 			style = style.Bold(true)
 		}
-		bar := style.Reverse(true).Render(fmt.Sprintf(" %-15s %-18s                 ", color.Def.Name, color.Def.Hex))
+		bar := style.Reverse(true).Render(fmt.Sprintf(" %-15s %-18s                 ", caser.String(color.Def.Name), color.Def.Hex))
 		fmt.Println(style.Render(fmt.Sprintf("%s %-7s ", placeHolderText, suffix)), bar)
 	}
 }

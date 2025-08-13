@@ -2,7 +2,10 @@ module github.com/dr8co/palettes
 
 go 1.24.6
 
-require github.com/charmbracelet/lipgloss v1.1.0
+require (
+	github.com/charmbracelet/lipgloss v1.1.0
+	golang.org/x/text v0.28.0
+)
 
 require (
 	github.com/aymanbagabas/go-osc52/v2 v2.0.1 // indirect
