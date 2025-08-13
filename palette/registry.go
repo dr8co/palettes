@@ -22,4 +22,11 @@ func RegisterAllSchemes(reg *registry.SchemeRegistry) {
 	if palette := CreateEldritchPalette(); palette != nil {
 		reg.Register(palette)
 	}
+
+	// Tokyo Night
+	for variant := range TokyoNightColors {
+		if palette := CreateTokyoNightPalette(variant); palette != nil {
+			reg.Register(palette)
+		}
+	}
 }

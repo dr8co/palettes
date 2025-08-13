@@ -1,5 +1,7 @@
 package palette
 
+import "strings"
+
 // RosePineColors contains the color definitions for all the Rosé Pine variants.
 // Check https://rosepinetheme.com/palette/ingredients for more information.
 var RosePineColors = map[string][]ColorDefinition{
@@ -58,6 +60,7 @@ var RosePineColors = map[string][]ColorDefinition{
 
 // CreateRosePinePalette creates a Rosé Pine palette variant with appropriate families.
 func CreateRosePinePalette(variant string) *Palette {
+	variant = strings.ToLower(strings.TrimSpace(variant))
 	colors, exists := RosePineColors[variant]
 	if !exists {
 		return nil
