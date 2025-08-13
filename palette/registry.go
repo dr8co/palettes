@@ -17,4 +17,9 @@ func RegisterAllSchemes(reg *registry.SchemeRegistry) {
 			reg.Register(palette)
 		}
 	}
+
+	// Eldritch palette
+	if palette := CreateEldritchPalette(); palette != nil {
+		reg.Register(palette)
+	}
 }

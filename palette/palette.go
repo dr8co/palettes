@@ -106,7 +106,7 @@ func (p *Palette) render(bold bool) {
 		if bold {
 			style = style.Bold(true)
 		}
-		bar := style.Reverse(true).Render(fmt.Sprintf(" %-15s %-18s                 ", caser.String(color.Def.Name), color.Def.Hex))
+		bar := style.Reverse(true).Render(fmt.Sprintf(" %-20s %-13s                 ", caser.String(color.Def.Name), color.Def.Hex))
 		fmt.Println(style.Render(fmt.Sprintf("%s %-7s ", placeHolderText, suffix)), bar)
 	}
 }
