@@ -1,6 +1,10 @@
 package palette
 
-import "github.com/charmbracelet/lipgloss"
+import (
+	"fmt"
+
+	"github.com/charmbracelet/lipgloss"
+)
 
 // Color represents a single color with its definition and styling information.
 type Color struct {
@@ -26,4 +30,12 @@ func NewColor(name, hex string) *Color {
 		Def:   ColorDefinition{Name: name, Hex: hex},
 		Style: renderer.NewStyle().Foreground(lipgloss.Color(hex)),
 	}
+}
+
+// String returns a string representation of a [ColorDefinition].
+func (cd *ColorDefinition) String() string {
+	if cd.Name == "" {
+		return cd.Hex
+	}
+	return fmt.Sprintf("%s (%s)", cd.Name, cd.Hex)
 }
