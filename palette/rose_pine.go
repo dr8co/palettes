@@ -5,7 +5,7 @@ import "strings"
 // RosePineColors contains the color definitions for all the Rosé Pine variants.
 // Check https://rosepinetheme.com/palette/ingredients for more information.
 var RosePineColors = map[string][]ColorDefinition{
-	"Base": {
+	"": {
 		{"Base", "#191724"},
 		{"Surface", "#1f1d2e"},
 		{"Overlay", "#26233a"},
@@ -22,7 +22,7 @@ var RosePineColors = map[string][]ColorDefinition{
 		{"Highlight Med", "#403d52"},
 		{"Highlight High", "#524f67"},
 	},
-	"Moon": {
+	"moon": {
 		{"Base", "#232136"},
 		{"Surface", "#2a273f"},
 		{"Overlay", "#393552"},
@@ -39,7 +39,7 @@ var RosePineColors = map[string][]ColorDefinition{
 		{"Highlight Med", "#44415a"},
 		{"Highlight High", "#56526e"},
 	},
-	"Dawn": {
+	"dawn": {
 		{"Base", "#faf4ed"},
 		{"Surface", "#fffaf3"},
 		{"Overlay", "#f2e9e1"},
@@ -66,9 +66,9 @@ func CreateRosePinePalette(variant string) *Palette {
 		return nil
 	}
 
-	name := "Rose Pine " + variant
+	name := "Rosé Pine " + variant
 
-	palette := NewPalette(name, "Rose Pine", "dark", variant)
+	palette := NewPalette(name, "Rose Pine", "Rosé Pine", "Rosé", "Pine", "Rose", "dark", variant)
 
 	for _, color := range colors {
 		palette.AddColor(color.Name, color.Hex)

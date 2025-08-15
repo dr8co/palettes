@@ -11,8 +11,8 @@ import (
 )
 
 var (
-	renderer = lipgloss.NewRenderer(os.Stdout)
-	caser    = cases.Title(language.English)
+	renderer   = lipgloss.NewRenderer(os.Stdout)
+	TitleCaser = cases.Title(language.English)
 )
 
 const placeHolderText = "Lorem ipsum dolor"
@@ -99,14 +99,14 @@ func (p *Palette) render(bold bool) {
 	if bold {
 		suffix = "Bold"
 	}
-	fmt.Println("Palette:", caser.String(p.name), suffix)
+	fmt.Println("Palette:", TitleCaser.String(p.name), suffix)
 
 	for _, color := range p.colors {
 		style := color.Style
 		if bold {
 			style = style.Bold(true)
 		}
-		bar := style.Reverse(true).Render(fmt.Sprintf(" %-20s %-13s                 ", caser.String(color.Def.Name), color.Def.Hex))
+		bar := style.Reverse(true).Render(fmt.Sprintf(" %-20s %-13s                 ", TitleCaser.String(color.Def.Name), color.Def.Hex))
 		fmt.Println(style.Render(fmt.Sprintf("%s %-7s ", placeHolderText, suffix)), bar)
 	}
 }

@@ -54,7 +54,7 @@ func CreateTokyoNightPalette(variant string) *Palette {
 
 	name := "Tokyo Night " + variant
 
-	palette := NewPalette(name, "Tokyo Night", variant)
+	palette := NewPalette(name, "Tokyo Night", "Tokyo", variant)
 
 	for _, color := range colors {
 		palette.AddColor(color.Name, color.Hex)
