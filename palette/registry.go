@@ -34,4 +34,11 @@ func RegisterAllSchemes(reg *registry.SchemeRegistry) {
 			reg.Register(palette)
 		}
 	}
+
+	// Gruvbox
+	for variant := range GruvboxColors {
+		if palette := CreateGruvboxPalette(variant); palette != nil {
+			reg.Register(palette)
+		}
+	}
 }
