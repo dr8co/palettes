@@ -44,4 +44,7 @@ func RegisterAllSchemes(reg *registry.SchemeRegistry) {
 
 	// Monokai Pro
 	reg.Register(CreateMonokaiProPalette())
+
+	// Dracula
+	reg.Register(CreateDraculaPalette())
 }
