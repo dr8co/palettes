@@ -41,4 +41,7 @@ func RegisterAllSchemes(reg *registry.SchemeRegistry) {
 			reg.Register(palette)
 		}
 	}
+
+	// Monokai Pro
+	reg.Register(CreateMonokaiProPalette())
 }
