@@ -10,12 +10,6 @@ import (
 	"github.com/dr8co/palettes/registry"
 )
 
-var (
-	showFlag = flag.String("show", "", "Show specific palette or palette family (e.g., 'catppuccin', 'dark', 'mocha')")
-	listFlag = flag.Bool("list", false, "List all available palettes")
-	helpFlag = flag.Bool("help", false, "Show help information")
-)
-
 // printUsage displays usage information
 func printUsage() {
 	fmt.Println("Color Palette Display Tool")
@@ -32,11 +26,15 @@ func printUsage() {
 	fmt.Printf("  %s -show catppuccin             # Show all Catppuccin variants\n", os.Args[0])
 	fmt.Printf("  %s -show dark                   # Show all dark theme palettes\n", os.Args[0])
 	fmt.Printf("  %s -show mocha                  # Show Catppuccin Mocha variant\n", os.Args[0])
-	fmt.Printf("  %s -show \"Catppuccin Mocha\"      # Show exact palette name\n", os.Args[0])
+	fmt.Printf("  %s -show \"Catppuccin Mocha\"     # Show exact palette name\n", os.Args[0])
 	fmt.Printf("  %s -list                        # List all available palettes\n", os.Args[0])
 }
 
 func main() {
+	showFlag := flag.String("show", "", "Show specific palette or palette family (e.g., 'catppuccin', 'dark', 'mocha')")
+	listFlag := flag.Bool("list", false, "List all available palettes")
+	helpFlag := flag.Bool("help", false, "Show help information")
+
 	flag.Usage = printUsage
 	flag.Parse()
 

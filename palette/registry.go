@@ -47,4 +47,7 @@ func RegisterAllSchemes(reg *registry.SchemeRegistry) {
 
 	// Dracula
 	reg.Register(CreateDraculaPalette())
+
+	// Solarized
+	reg.Register(CreateSolarizedPalette())
 }
