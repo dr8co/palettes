@@ -1,3 +1,30 @@
+// Package registry provides a centralized management system for color schemes in terminal
+// applications. It implements a registry pattern that allows for dynamic registration,
+// lookup, and filtering of color schemes.
+//
+// The registry package serves as the organizational core for managing multiple color schemes,
+// providing features such as:
+//   - Registration and retrieval of color schemes
+//   - Case-sensitive and partial name matching
+//   - Family-based grouping and filtering
+//   - Sorted listing of available schemes
+//   - Bulk operations on registered schemes
+//
+// Each color scheme in the registry must implement the ColorScheme interface, which
+// defines the basic operations that any color scheme should support:
+//   - Getting the scheme's name
+//   - Displaying the scheme in the terminal
+//   - Retrieving the scheme's family associations
+//
+// Example usage:
+//
+//	reg := registry.NewSchemeRegistry()
+//	reg.Register(myColorScheme)
+//	schemes := reg.FindByFamily("dark")
+//	reg.ShowAll()
+//
+// The registry ensures consistent access to color schemes throughout the application
+// while providing flexible querying capabilities for scheme discovery and management.
 package registry
 
 import (

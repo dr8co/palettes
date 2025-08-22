@@ -1,3 +1,24 @@
+// Package palette provides functionality for creating, managing, and displaying color palettes
+// in terminal environments. It supports various popular color schemes including Catppuccin,
+// Dracula, Gruvbox, Monokai, Nord, Rose Pine, Solarized, Tokyo Night, and Eldritch.
+//
+// The package offers a flexible system for defining and organizing color schemes through
+// the ColorScheme interface and Palette type. Each palette can have multiple colors and
+// belong to multiple families (e.g., "dark", "light", "pastel", etc.).
+//
+// Key features:
+//   - Create and manage color palettes with names and families
+//   - Add individual colors or multiple colors at once
+//   - Display palettes in the terminal with optional bold styling
+//   - Group palettes by families for better organization
+//   - Support for various popular terminal and editor color schemes
+//
+// Example usage:
+//
+//	palette := NewPalette("My Theme", "dark", "custom")
+//	palette.AddColor("background", "#282a36")
+//	palette.AddColor("foreground", "#f8f8f2")
+//	palette.Show()
 package palette
 
 import (
