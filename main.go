@@ -10,6 +10,8 @@ import (
 	"github.com/dr8co/palettes/registry"
 )
 
+const version = "0.1.0"
+
 // printUsage displays usage information
 func printUsage() {
 	fmt.Println("Color Palette Display Tool")
@@ -24,22 +26,46 @@ func printUsage() {
 	fmt.Println("Examples:")
 	fmt.Printf("  %s                              # Show all palettes\n", os.Args[0])
 	fmt.Printf("  %s -show catppuccin             # Show all Catppuccin variants\n", os.Args[0])
-	fmt.Printf("  %s -show dark                   # Show all dark theme palettes\n", os.Args[0])
+	fmt.Printf("  %s -s dark                      # Show all dark theme palettes (short form)\n", os.Args[0])
 	fmt.Printf("  %s -show mocha                  # Show Catppuccin Mocha variant\n", os.Args[0])
 	fmt.Printf("  %s -show \"Catppuccin Mocha\"     # Show exact palette name\n", os.Args[0])
 	fmt.Printf("  %s -list                        # List all available palettes\n", os.Args[0])
+	fmt.Printf("  %s -l                           # List all palettes (short form)\n", os.Args[0])
 }
 
 func main() {
-	showFlag := flag.String("show", "", "Show specific palette or palette family (e.g., 'catppuccin', 'dark', 'mocha')")
-	listFlag := flag.Bool("list", false, "List all available palettes")
-	helpFlag := flag.Bool("help", false, "Show help information")
+	flags := flag.NewFlagSet(os.Args[0], flag.ExitOnError)
+	flags.Usage = printUsage
 
-	flag.Usage = printUsage
-	flag.Parse()
+	// Define flags with both long and short forms
+	showFlag := flags.String("show", "", "Show specific palette or palette family (e.g., 'catppuccin', 'dark', 'mocha')")
+	shortShow := flags.String("s", "", "")
+	flags.Lookup("s").Usage = flags.Lookup("show").Usage
+
+	listFlag := flags.Bool("list", false, "List all available palettes")
+	shortList := flags.Bool("l", false, "")
+	flags.Lookup("l").Usage = flags.Lookup("list").Usage
+
+	helpFlag := flags.Bool("help", false, "Show help information")
+	shortHelp := flags.Bool("h", false, "")
+	flags.Lookup("h").Usage = flags.Lookup("help").Usage
+
+	versionFlag := flags.Bool("version", false, "Show version information")
+	shortVersion := flags.Bool("v", false, "")
+	flags.Lookup("v").Usage = flags.Lookup("version").Usage
+
+	if err := flags.Parse(os.Args[1:]); err != nil {
+		os.Exit(1)
+	}
+
+	// Handle version flag
+	if *versionFlag || *shortVersion {
+		fmt.Printf("palettes version %s\n", version)
+		return
+	}
 
 	// Handle help flag
-	if *helpFlag {
+	if *helpFlag || *shortHelp {
 		printUsage()
 		return
 	}
@@ -49,14 +75,18 @@ func main() {
 	palette.RegisterAllSchemes(reg)
 
 	// Handle list flag
-	if *listFlag {
+	if *listFlag || *shortList {
 		printPaletteList(reg)
 		return
 	}
 
 	// Handle show flag
-	if *showFlag != "" {
-		err := handleShowCommand(reg, *showFlag)
+	showValue := *showFlag
+	if *shortShow != "" {
+		showValue = *shortShow
+	}
+	if showValue != "" {
+		err := handleShowCommand(reg, showValue)
 		if err != nil {
 			_, _ = fmt.Fprintf(os.Stderr, "Error: %v\n", err)
 			os.Exit(1)
