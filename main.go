@@ -1,6 +1,8 @@
+// Package main implements the program's entry point.
 package main
 
 import (
+	"errors"
 	"flag"
 	"fmt"
 	"os"
@@ -167,7 +169,7 @@ func handleShowCommand(reg *registry.SchemeRegistry, query string) error {
 			families := strings.Join(scheme.Families(), ", ")
 			fmt.Printf("  • %-30s [%s]\n", scheme.Name(), families)
 		}
-		return fmt.Errorf("please be more specific")
+		return errors.New("please be more specific")
 	}
 
 	return fmt.Errorf("no palette found matching '%s'", query)

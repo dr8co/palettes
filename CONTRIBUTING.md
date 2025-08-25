@@ -9,13 +9,13 @@ contributing.
 2. Create a new file in the `palette` directory (e.g., `your_scheme.go`)
 3. Implement the `ColorScheme` interface:
 
-   ```go
-   type ColorScheme interface {
+```go
+type ColorScheme interface {
        Name() string    // Returns the name of the color scheme
        Show()           // Displays the color scheme
        Colors() []Color // Returns the color definitions
    }
-   ```
+```
 
 4. Register your scheme in `palette/registry.go`
 5. Add tests if applicable
