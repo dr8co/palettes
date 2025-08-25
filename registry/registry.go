@@ -10,7 +10,7 @@
 //   - Sorted listing of available schemes
 //   - Bulk operations on registered schemes
 //
-// Each color scheme in the registry must implement the ColorScheme interface, which
+// Each color scheme in the registry must implement the [ColorScheme] interface, which
 // defines the basic operations that any color scheme should support:
 //   - Getting the scheme's name
 //   - Displaying the scheme in the terminal

@@ -1,6 +1,7 @@
 # 🎨 Terminal Color Palette Visualizer
 
 A command-line tool written in Go that visualizes popular color palettes and themes in your terminal.
+
 This tool helps developers and designers preview and compare how different color schemes look
 directly in their terminal environment. ✨
 

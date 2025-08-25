@@ -3,7 +3,7 @@
 // Dracula, Gruvbox, Monokai, Nord, Rose Pine, Solarized, Tokyo Night, and Eldritch.
 //
 // The package offers a flexible system for defining and organizing color schemes through
-// the ColorScheme interface and Palette type. Each palette can have multiple colors and
+// the [ColorScheme] interface and [Palette] type. Each palette can have multiple colors and
 // belong to multiple families (e.g., "dark", "light", "pastel", etc.).
 //
 // Key features:
