@@ -24,9 +24,14 @@ directly in their terminal environment. ✨
 
 ## 📥 Installation
 
+Requires Go 1.25 or later.
+
 ```bash
 go install github.com/dr8co/palettes@latest
 ```
+
+Alternatively, you can download the latest release from
+the [Releases](https://github.com/dr8co/palettes/releases) page.
 
 ## 🚀 Usage
 
