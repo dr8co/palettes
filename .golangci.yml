@@ -25,6 +25,7 @@ linters:
     - nestif
     - nilerr
     - nolintlint
+    - paralleltest
     - perfsprint
     - prealloc
     - revive
