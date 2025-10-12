@@ -9,7 +9,7 @@
 // Key features:
 //   - Create and manage color palettes with names and families
 //   - Add individual colors or multiple colors at once
-//   - Display palettes in the terminal with optional bold styling
+//   - Display palettes in the terminal with variously styled text
 //   - Group palettes by families for better organization
 //   - Support for various popular terminal and editor color schemes
 //
@@ -32,11 +32,10 @@ import (
 )
 
 var (
-	renderer   = lipgloss.NewRenderer(os.Stdout)
-	titleCaser = cases.Title(language.English)
+	renderer        = lipgloss.NewRenderer(os.Stdout)
+	titleCaser      = cases.Title(language.English)
+	placeHolderText = [5]string{"Lorem", "ipsum", "dolor", "sit", "amet"}
 )
-
-const placeHolderText = "Lorem ipsum dolor"
 
 // ColorScheme defines the interface for color schemes
 type ColorScheme interface {
@@ -114,33 +113,24 @@ func (p *Palette) HasFamily(family string) bool {
 	return false
 }
 
-// Show displays both regular and bold versions of the palette.
+// Show displays the palette.
 func (p *Palette) Show() {
-	// Render regular colors
-	p.render(false)
-	fmt.Println()
-
-	// Render the bold colors
-	p.render(true)
-	fmt.Println(strings.Repeat("─", 80))
-	fmt.Println()
-}
-
-// render displays the palette with optional bold styling.
-func (p *Palette) render(bold bool) {
-	suffix := "Regular"
-	if bold {
-		suffix = "Bold"
-	}
-	fmt.Println("Palette:", titleCaser.String(p.name), suffix)
+	title := renderer.NewStyle().Bold(true).Render(titleCaser.String(p.name))
+	fmt.Println("Palette:", title)
 
 	for _, color := range p.colors {
 		style := color.Style
-		if bold {
-			style = style.Bold(true)
-		}
+		regularText := style.Render(placeHolderText[0])
+		italicText := style.Italic(true).Render(placeHolderText[1])
+		boldText := style.Bold(true).Render(placeHolderText[2])
+		underlineText := style.Underline(true).UnderlineSpaces(true).Render(placeHolderText[3])
+		strikethroughText := style.Strikethrough(true).Render(placeHolderText[4])
+
 		bar := style.Reverse(true).Render(fmt.Sprintf(" %-20s %-13s                 ",
 			titleCaser.String(color.Def.Name), color.Def.Hex))
-		fmt.Println(style.Render(fmt.Sprintf("%s %-7s ", placeHolderText, suffix)), bar)
+
+		fmt.Printf("%s %s %s %s %s  %s\n", regularText, italicText, boldText, underlineText, strikethroughText, bar)
 	}
+	fmt.Println(strings.Repeat("─", 80))
+	fmt.Println()
 }
