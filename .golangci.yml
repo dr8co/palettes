@@ -42,17 +42,5 @@ formatters:
     - goimports
 
 issues:
-  exclude-use-default: false
   max-issues-per-linter: 0
   max-same-issues: 0
-
-linters-settings:
-  gofmt:
-    simplify: true
-  goimports:
-    local-prefixes: github.com/dr8co/palettes
-  revive:
-    ignore-generated-header: true
-    severity: warning
-  gocyclo:
-    min-complexity: 15
