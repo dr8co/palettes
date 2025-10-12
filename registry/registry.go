@@ -91,7 +91,8 @@ func (r *SchemeRegistry) Show(name string) error {
 
 // ShowAll displays all registered color schemes.
 func (r *SchemeRegistry) ShowAll() {
-	for _, scheme := range r.schemes {
+	for _, name := range r.List() {
+		scheme, _ := r.Get(name)
 		scheme.Show()
 	}
 }
