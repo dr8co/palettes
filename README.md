@@ -17,6 +17,7 @@ directly in their terminal environment. ✨
   - ☀️ Solarized
   - 🌆 Tokyo Night
   - 👾 Eldritch
+  - 🦋 Everblush
 - 🔄 Shows color variations and theme variants where available
 - 💻 Easy-to-use command-line interface
 - 📋 Supports listing all available palettes
@@ -69,6 +70,7 @@ The tool includes several popular color schemes used in terminal emulators, code
 - ☀️ **Solarized**: Precision colors for machines and people
 - 🌆 **Tokyo Night**: A clean, dark theme that celebrates the lights of Downtown Tokyo
 - 👾 **Eldritch**: A mysterious and otherworldly color scheme
+- 🦋 **Everblush**: An aesthetically pleasing color scheme with beautiful syntax highlighting and colors.
 
 ## 🤝 Contributing
 

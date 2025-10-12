@@ -50,4 +50,7 @@ func RegisterAllSchemes(reg *registry.SchemeRegistry) {
 
 	// Solarized
 	reg.Register(CreateSolarizedPalette())
+
+	// Everblush
+	reg.Register(CreateEverblushPalette())
 }
