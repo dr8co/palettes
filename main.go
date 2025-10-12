@@ -12,7 +12,7 @@ import (
 	"github.com/dr8co/palettes/registry"
 )
 
-const version = "0.1.0"
+const version = "1.0.0"
 
 // printUsage displays usage information
 func printUsage() {
