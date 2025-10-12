@@ -16,23 +16,31 @@ const version = "0.1.0"
 
 // printUsage displays usage information
 func printUsage() {
-	fmt.Println("Color Palette Display Tool")
-	fmt.Println("==========================")
-	fmt.Println()
-	fmt.Println("Usage:")
-	fmt.Printf("  %s [options]\n", os.Args[0])
-	fmt.Println()
-	fmt.Println("Options:")
-	flag.PrintDefaults()
-	fmt.Println()
-	fmt.Println("Examples:")
-	fmt.Printf("  %s                              # Show all palettes\n", os.Args[0])
-	fmt.Printf("  %s -show catppuccin             # Show all Catppuccin variants\n", os.Args[0])
-	fmt.Printf("  %s -s dark                      # Show all dark theme palettes (short form)\n", os.Args[0])
-	fmt.Printf("  %s -show mocha                  # Show Catppuccin Mocha variant\n", os.Args[0])
-	fmt.Printf("  %s -show \"Catppuccin Mocha\"     # Show exact palette name\n", os.Args[0])
-	fmt.Printf("  %s -list                        # List all available palettes\n", os.Args[0])
-	fmt.Printf("  %s -l                           # List all palettes (short form)\n", os.Args[0])
+	fmt.Printf(`Color Palette Display Tool
+==========================
+
+USAGE:
+    %s [OPTIONS]
+
+DESCRIPTION:
+    Displays various popular color palettes on the terminal.
+    Without any flags, all palettes are displayed in the alphabetical order by name.
+
+OPTIONS:
+    -s, -show string       Show specific palette or palette family (e.g., 'dark', 'mocha')
+    -l, -list              List all available palettes
+    -v, -version           Show version information
+    -h, -help              Show this help message
+
+EXAMPLES:
+    %s                           # Show all palettes
+    %s -show catppuccin          # Show all Catppuccin variants
+    %s -list                     # List all available palettes
+    %s -s dark                   # Show all dark theme palettes (short form)
+    %s -show mocha               # Show Catppuccin Mocha variant
+    %s -show "Catppuccin Mocha"  # Show exact palette name
+    %s -l                        # List all palettes (short form)
+`, os.Args[0], os.Args[0], os.Args[0], os.Args[0], os.Args[0], os.Args[0], os.Args[0], os.Args[0])
 }
 
 func main() {
@@ -62,7 +70,7 @@ func main() {
 
 	// Handle version flag
 	if *versionFlag || *shortVersion {
-		fmt.Printf("palettes version %s\n", version)
+		fmt.Printf("palettes version %s\nCheck https://github.com/dr8co/palettes for updates.\n", version)
 		return
 	}
 
