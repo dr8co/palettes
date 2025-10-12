@@ -1,4 +1,4 @@
-// Package main implements the program's entry point.
+// Palettes displays various popular color palettes on the terminal.
 package main
 
 import (

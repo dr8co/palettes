@@ -1,5 +1,11 @@
 # 🎨 Terminal Color Palette Visualizer
 
+![Made with Go](https://img.shields.io/badge/Made%20with-Go-00ADD8?logo=go)
+![Platform](https://img.shields.io/badge/platform-linux%20%7C%20macOS%20%7C%20Windows-blue)
+![GitHub go.mod Go version](https://img.shields.io/github/go-mod/go-version/dr8co/palettes?logo=go)
+[![Go Report Card](https://goreportcard.com/badge/github.com/dr8co/palettes)](https://goreportcard.com/report/github.com/dr8co/palettes)
+![License](https://img.shields.io/github/license/dr8co/palettes?color=blue)
+
 A command-line tool written in Go that visualizes popular color palettes and themes in your terminal.
 
 This tool helps developers and designers preview and compare how different color schemes look
@@ -31,7 +37,7 @@ Requires Go 1.25 or later.
 go install github.com/dr8co/palettes@latest
 ```
 
-Alternatively, you can download the latest release from
+Alternatively, you can download the latest precompiled binary from
 the [Releases](https://github.com/dr8co/palettes/releases) page.
 
 ## 🚀 Usage
