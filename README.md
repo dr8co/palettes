@@ -72,7 +72,7 @@ The tool includes several popular color schemes used in terminal emulators, code
 
 ## 🤝 Contributing
 
-Contributions are welcome! Please check our [Contributing Guidelines](CONTRIBUTING.md) for detailed information about:
+Contributions are welcome! Please check our [Contributing Guidelines](./CONTRIBUTING.md) for detailed information about:
 
 - ✨ Adding new color schemes
 - 📝 Code style guidelines
@@ -82,4 +82,4 @@ Contributions are welcome! Please check our [Contributing Guidelines](CONTRIBUTI
 
 ## 📄 License
 
-This project is licensed under the MIT License. See the [LICENSE](LICENSE) file for details.
+This project is licensed under the MIT License. See the [LICENSE](./LICENSE) file for details.
