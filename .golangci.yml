@@ -35,6 +35,12 @@ linters:
     - whitespace
     - wrapcheck
     - unconvert
+    - modernize
+    - errcheck
+    - errorlint
+    - iface
+    - mirror
+    - prealloc
 
 formatters:
   enable:
