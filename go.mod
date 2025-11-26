@@ -4,7 +4,7 @@ go 1.25
 
 require (
 	github.com/charmbracelet/lipgloss v1.1.0
-	golang.org/x/text v0.30.0
+	golang.org/x/text v0.31.0
 )
 
 require (
