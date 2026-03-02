@@ -3,7 +3,7 @@ package palette
 import (
 	"fmt"
 
-	"github.com/charmbracelet/lipgloss"
+	"charm.land/lipgloss/v2"
 )
 
 // Color represents a single color with its definition and styling information.
@@ -28,7 +28,7 @@ type ColorDefinition struct {
 func NewColor(name, hex string) *Color {
 	return &Color{
 		Def:   ColorDefinition{Name: name, Hex: hex},
-		Style: renderer.NewStyle().Foreground(lipgloss.Color(hex)),
+		Style: lipgloss.NewStyle().Foreground(lipgloss.Color(hex)),
 	}
 }
 

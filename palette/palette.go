@@ -23,16 +23,14 @@ package palette
 
 import (
 	"fmt"
-	"os"
 	"strings"
 
-	"github.com/charmbracelet/lipgloss"
+	"charm.land/lipgloss/v2"
 	"golang.org/x/text/cases"
 	"golang.org/x/text/language"
 )
 
 var (
-	renderer        = lipgloss.NewRenderer(os.Stdout)
 	titleCaser      = cases.Title(language.English)
 	placeHolderText = [5]string{"Lorem", "ipsum", "dolor", "sit", "amet"}
 )
@@ -115,7 +113,7 @@ func (p *Palette) HasFamily(family string) bool {
 
 // Show displays the palette.
 func (p *Palette) Show() {
-	title := renderer.NewStyle().Bold(true).Render(titleCaser.String(p.name))
+	title := lipgloss.NewStyle().Bold(true).Render(titleCaser.String(p.name))
 	fmt.Println("Palette:", title)
 
 	for _, color := range p.colors {
