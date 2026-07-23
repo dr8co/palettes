@@ -1,3 +1,4 @@
+//nolint:goconst
 package palette
 
 // CreateMonokaiProPalette creates the Monokai Pro color palette.

@@ -1,3 +1,4 @@
+//nolint:goconst
 package palette
 
 // CreateDraculaPalette creates the Dracula color palette.

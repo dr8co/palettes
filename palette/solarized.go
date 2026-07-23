@@ -1,3 +1,4 @@
+//nolint:goconst
 package palette
 
 // CreateSolarizedPalette creates a new Solarized color palette.
