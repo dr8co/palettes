@@ -31,7 +31,7 @@ directly in their terminal environment. ✨
 
 ## 📥 Installation
 
-Requires Go 1.25 or later.
+Requires Go 1.27 or later.
 
 ```bash
 go install github.com/dr8co/palettes@latest
