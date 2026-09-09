@@ -58,4 +58,9 @@ func RegisterAllSchemes(reg *registry.SchemeRegistry) {
 	for _, v := range CreateAtomPalettes() {
 		reg.Register(v)
 	}
+
+	// Ayu Palettes
+	for _, v := range CreateAyuPalettes() {
+		reg.Register(v)
+	}
 }
