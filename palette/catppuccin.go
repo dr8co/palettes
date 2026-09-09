@@ -118,7 +118,7 @@ var catppuccinColors = map[string][]ColorDefinition{
 	},
 }
 
-// CreateCatppuccinPalette creates a Catppuccin palette variant with appropriate families.
+// CreateCatppuccinPalettes creates a Catppuccin palette variant with appropriate families.
 func CreateCatppuccinPalettes() []*Palette {
 	palettes := make([]*Palette, 0, len(catppuccinColors))
 	for nm, defs := range catppuccinColors {
