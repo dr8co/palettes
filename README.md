@@ -24,6 +24,9 @@ directly in their terminal environment. ✨
   - 🌆 Tokyo Night
   - 👾 Eldritch
   - 🦋 Everblush
+  - ⚛️ Atom OneDark & OneLight
+  - 🌳 Poimandres
+  - 💐 Ayu
 - 🔄 Shows color variations and theme variants where available
 - 💻 Easy-to-use command-line interface
 - 📋 Supports listing all available palettes
@@ -77,6 +80,9 @@ The tool includes several popular color schemes used in terminal emulators, code
 - 🌆 **Tokyo Night**: A clean, dark theme that celebrates the lights of Downtown Tokyo
 - 👾 **Eldritch**: A mysterious and otherworldly color scheme
 - 🦋 **Everblush**: An aesthetically pleasing color scheme with beautiful syntax highlighting and colors.
+- 🌳 **Poimandres**: A clean and modern color scheme
+- 💐 **Ayu**: A vibrant color scheme with a focus on readability
+- ⚛️ **Atom OneDark & OneLight**: A pair of themes from the Atom text editor
 
 ## 🤝 Contributing
 
