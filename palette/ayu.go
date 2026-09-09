@@ -1,3 +1,4 @@
+//nolint:goconst
 package palette
 
 // From https://github.com/ayu-theme/ayu-colors
