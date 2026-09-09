@@ -23,17 +23,13 @@ func RegisterAllSchemes(reg *registry.SchemeRegistry) {
 	}
 
 	// Nord
-	for variant := range NordColors {
-		if palette := CreateNordPalette(variant); palette != nil {
-			reg.Register(palette)
-		}
+	for _, v := range CreateNordPalettes() {
+		reg.Register(v)
 	}
 
 	// Gruvbox
-	for variant := range GruvboxColors {
-		if palette := CreateGruvboxPalette(variant); palette != nil {
-			reg.Register(palette)
-		}
+	for _, v := range CreateGruvboxPalettes() {
+		reg.Register(v)
 	}
 
 	// Monokai Pro

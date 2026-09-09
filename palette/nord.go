@@ -1,10 +1,8 @@
 package palette
 
-import "strings"
-
-// NordColors contains the color definitions for the Nord theme.
+// Contains the color definitions for the Nord theme.
 // Check https://www.nordtheme.com/docs/colors-and-palettes for more information.
-var NordColors = map[string][]ColorDefinition{
+var nordColors = map[string][]ColorDefinition{
 	"polar night": {
 		{"nord0", "#2e3440"},
 		{"nord1", "#3b4252"},
@@ -31,20 +29,17 @@ var NordColors = map[string][]ColorDefinition{
 	},
 }
 
-// CreateNordPalette creates a Nord palette variant with appropriate families.
-func CreateNordPalette(variant string) *Palette {
-	variant = strings.ToLower(strings.TrimSpace(variant))
-	colors, exists := NordColors[variant]
-	if !exists {
-		return nil
+// CreateNordPalettes creates a set of Nord palettes.
+func CreateNordPalettes() []*Palette {
+	palettes := make([]*Palette, 0, len(nordColors))
+	for variant, defs := range nordColors {
+		name := "Nord " + variant
+		palette := NewPalette(name, "Nord", variant)
+
+		for _, color := range defs {
+			palette.AddColor(color.Name, color.Hex)
+		}
+		palettes = append(palettes, palette)
 	}
-
-	name := "Nord " + variant
-
-	palette := NewPalette(name, "Nord", variant)
-
-	for _, color := range colors {
-		palette.AddColor(color.Name, color.Hex)
-	}
-	return palette
+	return palettes
 }
