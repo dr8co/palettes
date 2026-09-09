@@ -1,11 +1,9 @@
 //nolint:goconst
 package palette
 
-import "strings"
-
-// CatppuccinColors contains the color definitions for all the Catppuccin variants.
+// Contains the color definitions for all the Catppuccin variants.
 // Check https://catppuccin.com/palette for more information.
-var CatppuccinColors = map[string][]ColorDefinition{
+var catppuccinColors = map[string][]ColorDefinition{
 	"latte": {
 		{"Rosewater", "#dc8a78"},
 		{"Flamingo", "#dd7878"},
@@ -121,25 +119,21 @@ var CatppuccinColors = map[string][]ColorDefinition{
 }
 
 // CreateCatppuccinPalette creates a Catppuccin palette variant with appropriate families.
-func CreateCatppuccinPalette(variant string) *Palette {
-	variant = strings.ToLower(strings.TrimSpace(variant))
-	colors, exists := CatppuccinColors[variant]
-	if !exists {
-		return nil
+func CreateCatppuccinPalettes() []*Palette {
+	palettes := make([]*Palette, 0, len(catppuccinColors))
+	for nm, defs := range catppuccinColors {
+		name := "Catppuccin " + nm
+		theme := "dark"
+		if nm == "latte" {
+			theme = "light"
+		}
+
+		palette := NewPalette(name, "catppuccin", "pastel", theme, nm)
+
+		for _, color := range defs {
+			palette.AddColor(color.Name, color.Hex)
+		}
+		palettes = append(palettes, palette)
 	}
-
-	theme := "dark"
-	if variant == "latte" {
-		theme = "light"
-	}
-
-	name := "Catppuccin " + variant
-
-	// Create families: Catppuccin, theme (dark/light), and variant name
-	palette := NewPalette(name, "catppuccin", "pastel", theme, variant)
-
-	for _, color := range colors {
-		palette.AddColor(color.Name, color.Hex)
-	}
-	return palette
+	return palettes
 }

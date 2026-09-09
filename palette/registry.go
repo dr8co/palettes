@@ -5,10 +5,8 @@ import "github.com/dr8co/palettes/registry"
 // RegisterAllSchemes initializes and registers all available color schemes.
 func RegisterAllSchemes(reg *registry.SchemeRegistry) {
 	// Register Catppuccin palettes
-	for variant := range CatppuccinColors {
-		if palette := CreateCatppuccinPalette(variant); palette != nil {
-			reg.Register(palette)
-		}
+	for _, v := range CreateCatppuccinPalettes() {
+		reg.Register(v)
 	}
 
 	// Register Rosé Pine palettes
