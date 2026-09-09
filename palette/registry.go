@@ -18,10 +18,8 @@ func RegisterAllSchemes(reg *registry.SchemeRegistry) {
 	reg.Register(CreateEldritchPalette())
 
 	// Tokyo Night
-	for variant := range TokyoNightColors {
-		if palette := CreateTokyoNightPalette(variant); palette != nil {
-			reg.Register(palette)
-		}
+	for _, v := range CreateTokyoNightPalettes() {
+		reg.Register(v)
 	}
 
 	// Nord

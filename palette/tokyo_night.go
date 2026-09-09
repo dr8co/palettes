@@ -1,11 +1,9 @@
 //nolint:goconst
 package palette
 
-import "strings"
-
-// TokyoNightColors contains the color definitions for all the Tokyo Night variants.
+// Contains the color definitions for all the Tokyo Night variants.
 // Check https://github.com/tokyo-night/tokyo-night-vscode-theme for more information.
-var TokyoNightColors = map[string][]ColorDefinition{
+var tokyoNightColors = map[string][]ColorDefinition{
 	"dark": {
 		{"", "#f7768e"},
 		{"", "#ff9e64"},
@@ -45,20 +43,17 @@ var TokyoNightColors = map[string][]ColorDefinition{
 	},
 }
 
-// CreateTokyoNightPalette creates a Tokyo Night palette variant with appropriate families.
-func CreateTokyoNightPalette(variant string) *Palette {
-	variant = strings.ToLower(strings.TrimSpace(variant))
-	colors, exists := TokyoNightColors[variant]
-	if !exists {
-		return nil
+// CreateTokyoNightPalettes creates a set of Tokyo Night palettes.
+func CreateTokyoNightPalettes() []*Palette {
+	palettes := make([]*Palette, 0, len(tokyoNightColors))
+	for variant, defs := range tokyoNightColors {
+		name := "Tokyo Night " + variant
+		palette := NewPalette(name, "Tokyo Night", "Tokyo", variant)
+
+		for _, color := range defs {
+			palette.AddColor(color.Name, color.Hex)
+		}
+		palettes = append(palettes, palette)
 	}
-
-	name := "Tokyo Night " + variant
-
-	palette := NewPalette(name, "Tokyo Night", "Tokyo", variant)
-
-	for _, color := range colors {
-		palette.AddColor(color.Name, color.Hex)
-	}
-	return palette
+	return palettes
 }
