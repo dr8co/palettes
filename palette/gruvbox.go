@@ -1,11 +1,9 @@
 //nolint:goconst
 package palette
 
-import "strings"
-
-// GruvboxColors contains the color definitions for the classic Gruvbox themes.
+// Contains the color definitions for the classic Gruvbox themes.
 // Check https://github.com/morhetz/gruvbox for more information.
-var GruvboxColors = map[string][]ColorDefinition{
+var gruvboxColors = map[string][]ColorDefinition{
 	"dark": {
 		{"bg", "#282828"},
 		{"red", "#cc241d"},
@@ -74,20 +72,17 @@ var GruvboxColors = map[string][]ColorDefinition{
 	},
 }
 
-// CreateGruvboxPalette creates a Gruvbox palette with appropriate families.
-func CreateGruvboxPalette(variant string) *Palette {
-	variant = strings.ToLower(strings.TrimSpace(variant))
-	colors, exists := GruvboxColors[variant]
-	if !exists {
-		return nil
+// CreateGruvboxPalettes creates a set of Gruvbox palettes.
+func CreateGruvboxPalettes() []*Palette {
+	palettes := make([]*Palette, 0, len(gruvboxColors))
+	for variant, defs := range gruvboxColors {
+		name := "Gruvbox " + variant
+		palette := NewPalette(name, "gruvbox", "pastel", "retro", "groove", variant)
+
+		for _, color := range defs {
+			palette.AddColor(color.Name, color.Hex)
+		}
+		palettes = append(palettes, palette)
 	}
-
-	name := "Gruvbox " + variant
-
-	palette := NewPalette(name, "gruvbox", "pastel", "retro", "groove", variant)
-
-	for _, color := range colors {
-		palette.AddColor(color.Name, color.Hex)
-	}
-	return palette
+	return palettes
 }
