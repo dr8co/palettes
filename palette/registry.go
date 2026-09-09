@@ -63,4 +63,7 @@ func RegisterAllSchemes(reg *registry.SchemeRegistry) {
 	for _, v := range CreateAyuPalettes() {
 		reg.Register(v)
 	}
+
+	// Poimandres
+	reg.Register(CreatePoimandresPalette())
 }
