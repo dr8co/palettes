@@ -10,10 +10,8 @@ func RegisterAllSchemes(reg *registry.SchemeRegistry) {
 	}
 
 	// Register Rosé Pine palettes
-	for variant := range RosePineColors {
-		if palette := CreateRosePinePalette(variant); palette != nil {
-			reg.Register(palette)
-		}
+	for _, v := range CreateRosePinePalettes() {
+		reg.Register(v)
 	}
 
 	// Eldritch palette

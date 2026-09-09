@@ -1,11 +1,9 @@
 //nolint:goconst
 package palette
 
-import "strings"
-
-// RosePineColors contains the color definitions for all the Rosé Pine variants.
+// Contains the color definitions for all the Rosé Pine variants.
 // Check https://rosepinetheme.com/palette/ingredients for more information.
-var RosePineColors = map[string][]ColorDefinition{
+var rosePineColors = map[string][]ColorDefinition{
 	"": {
 		{"Base", "#191724"},
 		{"Surface", "#1f1d2e"},
@@ -59,20 +57,17 @@ var RosePineColors = map[string][]ColorDefinition{
 	},
 }
 
-// CreateRosePinePalette creates a Rosé Pine palette variant with appropriate families.
-func CreateRosePinePalette(variant string) *Palette {
-	variant = strings.ToLower(strings.TrimSpace(variant))
-	colors, exists := RosePineColors[variant]
-	if !exists {
-		return nil
+// CreateRosePinePalettes creates Rosé Pine palettes with appropriate families.
+func CreateRosePinePalettes() []*Palette {
+	palettes := make([]*Palette, 0, len(rosePineColors))
+	for variant, defs := range rosePineColors {
+		name := "Rosé Pine " + variant
+		palette := NewPalette(name, "Rose Pine", "Rosé Pine", "Rosé", "Pine", "Rose", "dark", variant)
+
+		for _, color := range defs {
+			palette.AddColor(color.Name, color.Hex)
+		}
+		palettes = append(palettes, palette)
 	}
-
-	name := "Rosé Pine " + variant
-
-	palette := NewPalette(name, "Rose Pine", "Rosé Pine", "Rosé", "Pine", "Rose", "dark", variant)
-
-	for _, color := range colors {
-		palette.AddColor(color.Name, color.Hex)
-	}
-	return palette
+	return palettes
 }
