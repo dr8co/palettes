@@ -53,4 +53,9 @@ func RegisterAllSchemes(reg *registry.SchemeRegistry) {
 
 	// Everblush
 	reg.Register(CreateEverblushPalette())
+
+	// Atom Palettes
+	for _, v := range CreateAtomPalettes() {
+		reg.Register(v)
+	}
 }
