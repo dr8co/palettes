@@ -56,9 +56,8 @@ func CreateAyuPalettes() []*Palette {
 
 		for _, color := range defs {
 			palette.AddColor(color.Name, color.Hex)
-
-			palettes = append(palettes, palette)
 		}
+		palettes = append(palettes, palette)
 	}
 	return palettes
 }
