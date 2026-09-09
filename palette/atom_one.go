@@ -3,7 +3,7 @@ package palette
 
 // OneDark Pro
 func createOneDarkPalette() *Palette {
-	palette := NewPalette("OneDark Pro", "OneDark", "OneDark Pro", "One", "Dark", "Atom")
+	palette := NewPalette("OneDark Pro", "OneDark", "OneDark Pro", "One", "dark", "Atom")
 
 	// From https://github.com/Binaryify/OneDark-Pro
 	colors := []ColorDefinition{
@@ -31,7 +31,7 @@ func createOneDarkPalette() *Palette {
 
 // OneLight
 func createOneLightPalette() *Palette {
-	palette := NewPalette("OneLight", "OneLight", "One", "Light", "Atom")
+	palette := NewPalette("OneLight", "OneLight", "One", "light", "Atom")
 
 	// From https://github.com/olimorris/onedarkpro.nvim
 	colors := []ColorDefinition{
@@ -58,7 +58,7 @@ func createOneLightPalette() *Palette {
 
 // OneDark Pro Vivid
 func createOneDarkVividPalette() *Palette {
-	palette := NewPalette("OneDark Pro Vivid", "OneDark", "OneDark Pro", "One", "Dark", "Atom", "Vivid")
+	palette := NewPalette("OneDark Pro Vivid", "OneDark", "OneDark Pro", "One", "dark", "Atom", "Vivid")
 
 	// From https://github.com/Binaryify/OneDark-Pro
 	colors := []ColorDefinition{
@@ -86,7 +86,7 @@ func createOneDarkVividPalette() *Palette {
 
 // Vaporwave
 func createVaporwavePalette() *Palette {
-	palette := NewPalette("Vaporwave", "OneDark", "One", "Dark", "Atom", "Vaporwave")
+	palette := NewPalette("Vaporwave", "OneDark", "One", "dark", "Atom", "Vaporwave")
 
 	// From https://github.com/olimorris/onedarkpro.nvim
 	colors := []ColorDefinition{

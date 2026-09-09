@@ -3,7 +3,7 @@ package palette
 
 // CreateMonokaiProPalette creates the Monokai Pro color palette.
 func CreateMonokaiProPalette() *Palette {
-	palette := NewPalette("Monokai Pro", "Monokai Pro", "Monokai")
+	palette := NewPalette("Monokai Pro", "Monokai Pro", "Monokai", "dark")
 
 	colors := []ColorDefinition{
 		{"dark2", "#19181a"},

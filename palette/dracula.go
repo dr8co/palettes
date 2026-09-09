@@ -3,7 +3,7 @@ package palette
 
 // CreateDraculaPalette creates the Dracula color palette.
 func CreateDraculaPalette() *Palette {
-	palette := NewPalette("Dracula", "Dracula")
+	palette := NewPalette("Dracula", "Dracula", "dark")
 
 	// From https://github.com/dracula/dracula-theme
 	colors := []ColorDefinition{
