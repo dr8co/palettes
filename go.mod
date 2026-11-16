@@ -3,7 +3,7 @@ module github.com/dr8co/palettes
 go 1.27
 
 require (
-	charm.land/lipgloss/v2 v2.0.6
+	charm.land/lipgloss/v2 v2.1.0
 	golang.org/x/text v0.43.0
 )
 
